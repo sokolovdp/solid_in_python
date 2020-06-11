@@ -26,7 +26,7 @@ class Http:
 Here, Http is the high-level component whereas HttpService is the low-level component. 
 This design violates DIP A: High-level modules should not depend on low-level level modules. It should depend upon its abstraction.
 
-Ths Http class is forced to depend upon the XMLHttpService class. 
+This Http class is forced to depend upon the XMLHttpService class. 
 If we were to change to change the Http connection service, maybe we want to connect to the internet through cURL or even Mock the http service. 
 We will painstakingly have to move through all the instances of Http to edit the code and this violates the OCP principle.
 
