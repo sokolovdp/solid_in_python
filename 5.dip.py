@@ -1,10 +1,12 @@
 """
 Dependency Inversion Principle
 Dependency should be on abstractions not concretions
-A. High-level modules should not depend upon low-level modules. Both should depend upon abstractions.
+A. High-level modules should not depend upon low-level modules. Both should depend
+upon abstractions.
 B. Abstractions should not depend on details. Details should depend upon abstractions.
 
-There comes a point in software development where our app will be largely composed of modules.
+There comes a point in software development where our app will be largely
+composed of modules.
 When this happens, we have to clear things up by using dependency injection.
 High-level components depending on low-level components to function.
 """
@@ -18,6 +20,11 @@ class XMLHttpService(XMLHttpRequestService):
     pass
 
 
+class XMLHttpRequest:
+    pass
+
+
+# noinspection PyUnusedLocal
 class Http:
 
     def __init__(self, xml_http_service: XMLHttpService):
@@ -58,6 +65,7 @@ of type Connection to our Http class:
 """
 
 
+# noinspection PyUnusedLocal
 class Http:
 
     def __init__(self, http_connection: Connection):
@@ -88,7 +96,8 @@ class XMLHttpService(Connection):
 
 
 """
-We can create many Http Connection types and pass it to our Http class without any fuss about errors.
+We can create many Http Connection types and pass it to our Http class without 
+any fuss about errors.
 """
 
 
@@ -105,10 +114,13 @@ class MockHttpService(Connection):
 
 
 """
-Now, we can see that both high-level modules and low-level modules depend on abstractions. 
+Now, we can see that both high-level modules and low-level modules 
+depend on abstractions. 
 Http class(high level module) depends on the Connection interface(abstraction) and 
-the Http service types(low level modules) in turn, depends on the Connection interface(abstraction).
+the Http service types(low level modules) in turn, depends on 
+the Connection interface(abstraction).
 
 Also, this DIP will force us not to violate the Liskov Substitution Principle: 
-The Connection types Node-XML-MockHttpService are substitutable for their parent type Connection.
+The Connection types Node-XML-MockHttpService are substitutable 
+for their parent type Connection.
 """
