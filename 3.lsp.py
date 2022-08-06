@@ -7,6 +7,7 @@ If the code finds itself checking the type of class then, it must have violated 
 Let’s use our Animal example.
 """
 
+
 def animal_leg_count(animals: list):
     for animal in animals:
         if isinstance(animal, Lion):
@@ -15,7 +16,8 @@ def animal_leg_count(animals: list):
             print(mouse_leg_count(animal))
         elif isinstance(animal, Pigeon):
             print(pigeon_leg_count(animal))
-        
+
+
 animal_leg_count(animals)
 
 """
@@ -28,10 +30,12 @@ Its sub-class should return a super-class type (Animal type) or sub-class type(P
 Now, we can re-implement animal_leg_count function:
 """
 
+
 def animal_leg_count(animals: list):
     for animal in animals:
         print(animal.leg_count())
-        
+
+
 animal_leg_count(animals)
 
 """
@@ -41,6 +45,7 @@ All it knows is that the parameter must be of an Animal type, either the Animal 
 The Animal class now have to implement/define a leg_count method.
 And its sub-classes have to implement the leg_count method:
 """
+
 
 class Animal:
     def leg_count(self):
